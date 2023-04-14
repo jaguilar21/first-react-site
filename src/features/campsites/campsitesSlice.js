@@ -53,8 +53,14 @@ export const selectCampsiteById = (id) => (state) => {
     );
 };
 
-export const selectFeatureCampsite = (state) => {
-    return state.campsites.campsitesArray.find((campsite) => campsite.featured);
+export const selectFeaturedCampsite = (state) => {
+    return {
+        featuredItem: state.campsites.campsitesArray.find(
+            (campsite) => campsite.featured
+        ),
+        isLoading: state.campsites.isLoading,
+        errMsg: state.campsites.errMsg
+    };
 };
 
 // export const selectRandomCampsite = () => {
